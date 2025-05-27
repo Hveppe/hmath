@@ -1,10 +1,16 @@
 #include "hmath.h"
 
 namespace hmath {
-    double pow(double number, int exponent) {
+    double pow(double number, int exponent, std::optional<int> modulus) {
         double result = number; 
+        
         for(int i = 0; i < exponent; i++) {
-           result *= number;
+            result *= number;
+            
+            if(modulus){
+                TODO: "Make it able to take modulus of float";
+                result = static_cast<int>(result) % modulus.value();
+            }
         }
 
         return result;
