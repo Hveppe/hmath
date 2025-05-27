@@ -2,8 +2,8 @@
 #define HMATH_H
 
 namespace hmath {
-    float pow(float number, int exponent);
-    float sqrt_herons(float number);
+    double pow(double number, int exponent);
+    double sqrt_herons(double number);
 }
 
 #endif

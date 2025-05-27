@@ -1,8 +1,8 @@
 #include "hmath.h"
 
 namespace hmath {
-    float pow(float number, int exponent) {
-        float result = number; 
+    double pow(double number, int exponent) {
+        double result = number; 
         for(int i = 0; i < exponent; i++) {
            result *= number;
         }
@@ -10,7 +10,7 @@ namespace hmath {
         return result;
     }
 
-    float sqrt_herons(float number) {
+    double sqrt_herons(double number) {
         double x = number;
 
         for(int i = 0; i < 1000; i++ ) {
