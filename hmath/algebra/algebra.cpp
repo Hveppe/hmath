@@ -1,4 +1,4 @@
-#include "hmath.h"
+#include "algebra.h"
 
 namespace hmath {
     double pow(double number, int exponent, std::optional<int> modulus) {
@@ -16,7 +16,7 @@ namespace hmath {
         return result;
     }
 
-    double sqrt_herons(double number) {
+    double sqrtHerons(double number) {
         double x = number;
 
         for(int i = 0; i < 1000; i++ ) {
