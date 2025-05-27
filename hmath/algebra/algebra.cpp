@@ -1,6 +1,13 @@
 #include "algebra.h"
 
 namespace hmath {
+    double abs(double number) {
+        if(number < 0) {
+            return (number * -1);
+        }
+        return number;
+    }
+
     double pow(double number, int exponent, std::optional<int> modulus) {
         double result = number; 
         
@@ -17,12 +24,14 @@ namespace hmath {
     }
 
     double sqrtHerons(double number) {
-        double x = number;
+        double x = number, prev;
+        const double tolerance = 1e-10;
 
-        for(int i = 0; i < 1000; i++ ) {
+        while( hmath::abs(x - prev) > tolerance) {
+            prev = x;
             x = 0.5 * (x + number / x);
         }
 
         return x;
-    }
+    }   
 }

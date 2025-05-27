@@ -5,8 +5,9 @@
 #include <optional>
 
 namespace hmath {
+    double abs(double number);
     double pow(double number, int exponent, std::optional<int> modulus = std::nullopt);
-    double sqrt_herons(double number);
+    double sqrtHerons(double number);
 }
 
 #endif
