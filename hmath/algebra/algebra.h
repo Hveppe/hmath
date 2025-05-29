@@ -3,6 +3,7 @@
 
 // included libraries
 #include <optional>
+#include <stdexcept>
 
 namespace hmath {
     double abs(double number);
