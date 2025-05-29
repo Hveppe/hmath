@@ -47,7 +47,7 @@ namespace hmath {
         return result;
     }
 
-    double sqrtHerons(double number) {
+    double sqrt(double number) {
         if(number < 0) {throw std::overflow_error("Can't take sqrt of negativ numbers");}
         if(number == 0) {return 0;}
         
