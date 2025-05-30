@@ -4,6 +4,7 @@
 // included libraries
 #include <optional>
 #include <stdexcept>
+#include <iostream>
 
 namespace hmath {
     double abs(double number);
