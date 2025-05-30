@@ -16,6 +16,7 @@ namespace hmath {
     
     double arcSin(double x);
     double arcCos(double x);
+    double arcTan(double x);
 }
 
 #endif

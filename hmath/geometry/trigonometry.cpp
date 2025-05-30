@@ -105,4 +105,22 @@ namespace hmath {
             y -= delta;
         }
     }
+
+    double arcTan(double x) {
+        double tolerance = 1e-10;
+        double y = (hmath::abs(x) < 1.0) ? 0.0 : 45.0;;  // Initial guess in degrees
+
+        while (true) {
+            double f = hmath::tan(y, 15) - x;
+            double df = 1.0 + hmath::tan(y, 15) * hmath::tan(y, 15); // Derivative of tan is 1 + tan^2(x)
+
+            if (df == 0.0) {throw std::runtime_error("Derivative is zero in arcTan");}
+
+            double delta = f / df;
+
+            if (hmath::abs(delta) < tolerance) return y;
+
+            y -= delta;
+        }
+    }
 }
