@@ -10,7 +10,7 @@ namespace hmath {
     public:
         double x, y;
 
-        vector2(double x, double y);
+        vector2(double x = 0.0, double y = 0.0);
 
         // operators
         hmath::vector2 operator + (const hmath::vector2 other) const {return hmath::vector2(x + other.x, y + other.y);}
@@ -31,9 +31,10 @@ namespace hmath {
     public:
         double x, y, z;
 
-        vector3(double xStart, double yStart, double zStart);
+        vector3(double x = 0.0, double y = 0.0, double z = 0.0);
 
         // operators
+        hmath::vector3 operator ^ (const hmath::vector3 other) const {return hmath::vector3(this->y * other.z - this->z * other.y, this->z * other.x - this->x * other.z, this->x * other.y - this->y * other.x);}
         hmath::vector3 operator + (const hmath::vector3 other) const {return hmath::vector3(x + other.x, y + other.y, z + other.z);}
         hmath::vector3 operator - (const hmath::vector3 other) const {return hmath::vector3(x - other.x, y - other.y, z - other.z);}
         hmath::vector3 operator * (const double skalar) const {return hmath::vector3(x * skalar, y * skalar, z * skalar);}
