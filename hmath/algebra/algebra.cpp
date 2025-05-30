@@ -18,6 +18,17 @@ namespace hmath {
         return (number < intNumber) ? intNumber - 1 : intNumber;
     }
 
+    int trunc(double number) {
+        if(number < 0) {
+            return hmath::ceil(number);
+        }
+        return hmath::floor(number);
+    }
+
+    double fmod(double number, double modulus) {
+        return number - modulus * hmath::trunc(number / modulus);
+    }
+
     // TODO: Make it take non int exponent numbers
     double doublePow(double number, int exponent, std::optional<double> modulus) {
         double result = number;
@@ -26,7 +37,7 @@ namespace hmath {
             result *= number;
 
             if(modulus) {
-                result = result - modulus.value() * hmath::floor(result/modulus.value());
+                result = fmod(result, modulus.value());
             }
         }
 
@@ -34,9 +45,11 @@ namespace hmath {
     }
 
     double intPow(int number, int exponent, std::optional<int> modulus) {
+        if(exponent == 0) {return 1.0;}
+        
         double result = number; 
         
-        for(int i = 0; i < exponent; i++) {
+        for(int i = 0; i < hmath::abs(exponent); i++) {
             result *= number;
             
             if(modulus) {
@@ -44,7 +57,12 @@ namespace hmath {
             }
         }
 
-        return result;
+        if(exponent < 0) {
+            return (1/result);
+        } else {
+            return result;
+        }
+        
     }
 
     double sqrt(double number) {

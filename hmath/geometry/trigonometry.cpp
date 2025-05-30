@@ -2,9 +2,9 @@
 
 namespace hmath {
     // Sinus made with Taylor series
-    double sin(double x, int terms) {
+    double sin(double degrees, int terms) {
         // Convert x from degres to radians
-        x = hmath::degreeToRadian(x);
+        double x = hmath::degreeToRadian(degrees);
         
         double result = 0.0, term = x;
         int sign = 1; // Starts with + sign
@@ -18,30 +18,35 @@ namespace hmath {
         return result;
     }
 
-     // Cosinus made with Taylor series
-    double cos(double x, int terms) {
-        // Convert x from degres to radians
-        x = hmath::degreeToRadian(x);
-        
-        double result = 0.0, term = 1.0;
-        int sign = 1; // Starts with + sign
+    // Cosinus made with Taylor series
+    double cos(double degrees, int terms) {
+        // Convert to radians
+        double x = hmath::degreeToRadian(degrees);
 
-        for(int i = 0; i <= terms; i++) {
-            result += sign * term;
-            term *= x * x / ((2 * i + 1) * (2 * i + 2)); // Update term
-            sign *= -1; // Flip sign between - and +
+        // Normalize x to [-π, π] to improve convergence
+        x = hmath::fmod(x + hmath::PI, 2 * hmath::PI);
+        if (x < 0) x += 2 * hmath::PI;
+        x -= hmath::PI;
+
+        double result = 1.0;  // First term is 1
+        double term = 1.0;
+
+        for (int i = 1; i < terms; ++i) {
+            term *= -x * x / ((2 * i - 1) * (2 * i));
+            result += term;
         }
 
-        if(hmath::abs(result) < 1e-15){
+        // Threshold near-zero values
+        if (hmath::abs(result) < 1e-15) {
             result = 0.0;
         }
 
         return result;
     }
-
-    double tan(double x, int terms) {
-        double sinValue = hmath::sin(x, terms);
-        double cosValue = hmath::cos(x, terms);
+    
+    double tan(double degrees, int terms) {
+        double sinValue = hmath::sin(degrees, terms);
+        double cosValue = hmath::cos(degrees, terms);
 
         if(hmath::abs(cosValue) < 1e-15){
             throw std::overflow_error("cos value is zero");
@@ -51,34 +56,53 @@ namespace hmath {
     }
 
     double arcSin(double x) {
-        if(x < -1.0 || 1.0 < x) {throw std::domain_error("Input out of domain for arcsinus");}
+        if (x < -1.0 || x > 1.0) {throw std::domain_error("Input out of domain for arcsinus");}
 
-        // Special cases:
-        if (x == 1.0) {return 90;}
-        if (x == -1.0) {return -90.0;}
+        if (x == 1.0) return 90.0;
+        if (x == -1.0) return -90.0;
 
-        double tolerance = 10e-10, y = x;
-        while(true) {
+        double tolerance = 1e-10;
+        double y = 45.0;  // Initial guess in degrees
+
+        while (true) {
             double f = hmath::sin(y) - x;
             double df = hmath::cos(y);
-            if (std::abs(f) < tolerance) return y;
-            y = y - (f / df);
+            double delta = f / df;
+
+            if (hmath::abs(delta) < tolerance) return y;
+
+            y -= delta;
         }
     }
 
     double arcCos(double x) {
-        if(x < -1.0 || 1.0 < x) {throw std::domain_error("Input out of domain for arccosinus");}
+        if (x < -1.0 || x > 1.0) {throw std::domain_error("Input out of domain for arccosine");}
 
-        // Special cases:
-        if (x == 1.0) {return 0.0;}
-        if (x == -1.0) {return 180.0;}
+        // Special cases
+        if (x == 1.0) return 0.0;
+        if (x == -1.0) return 180.0;
 
-        double tolerance = 10e-10, y = x;
-        while(true) {
-            double f = hmath::cos(y) - x;
-            double df = -hmath::sin(y);
-            if (std::abs(f) < tolerance) return y;
-            y = y - (f / df);
+        double tolerance = 1e-10;
+        double y = 1.0;  // Initial guess in radians (roughly 60°)
+
+        while (true) {
+            double f = hmath::cos(hmath::radianToDegree(y)) - x;
+            double df = -hmath::sin(hmath::radianToDegree(y));
+            double delta = f / df;
+
+            if (hmath::abs(delta) < tolerance) {
+                // Convert final radian result to degrees
+                double result = hmath::radianToDegree(y);
+                
+                // Threshold near-zero values
+                if(hmath::abs(result) < 2e-6) {
+                    result = 0.0;
+                }
+
+                return result;
+            }
+
+            y -= delta;
         }
     }
 }
