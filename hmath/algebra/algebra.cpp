@@ -29,6 +29,13 @@ namespace hmath {
         return number - modulus * hmath::trunc(number / modulus);
     }
 
+    int round(double number) {
+        if(fmod(number, 1) < 0.5) {
+            return floor(number);
+        }
+        return ceil(number);
+    }
+
     // TODO: Make it take non int exponent numbers
     double doublePow(double number, int exponent, std::optional<double> modulus) {
         double result = number;
