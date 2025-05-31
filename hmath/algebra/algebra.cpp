@@ -50,7 +50,8 @@ namespace hmath {
     }
 
     double ln(double number) {
-        if(number <= 0) {throw std::domain_error("ln(x) is undefined for x <= 0");}
+        if(number < 0) {throw std::domain_error("ln(x) is undefined for x <= 0");}
+        if(number == 0) {return 1;}
 
         double y = number - 1.0, tolerance = 1e-10;
 
@@ -64,9 +65,19 @@ namespace hmath {
     }
 
     double logPow(double base, double exponent, std::optional<double> modulus) {
-        if(base <= 0.0) {throw std::domain_error("Base must be positive for logarithm-based exponentiation");}
+        double result;
         
-        double result = hmath::exp(exponent * hmath::ln(base));
+        if(base < 0.0) {
+            if(hmath::floor(exponent) != exponent) {throw std::domain_error("Negative base with non-interger exponent results in complex number");}
+
+            result = hmath::exp(exponent * hmath::ln(-base));
+
+            if(fmod(exponent, 2) != 0.0) {
+                result *= -1;
+            }
+        } else {
+            result = hmath::exp(exponent * hmath::ln(base));
+        }
 
         if (modulus) {
             result = hmath::fmod(result, modulus.value());
