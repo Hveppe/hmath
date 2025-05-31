@@ -63,8 +63,7 @@ namespace hmath {
         }
     }
 
-    // TODO: Make it take non int exponent numbers
-    double logPow(double base, int exponent, std::optional<double> modulus) {
+    double logPow(double base, double exponent, std::optional<double> modulus) {
         if(base <= 0.0) {throw std::domain_error("Base must be positive for logarithm-based exponentiation");}
         
         double result = hmath::exp(exponent * hmath::ln(base));
