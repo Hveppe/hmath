@@ -36,44 +36,48 @@ namespace hmath {
         return ceil(number);
     }
 
+    double exp(double number) {
+        double term = 1.0, result = 1.0, tolerance = 1e-10;
+        int n = 1;
+        
+        while(true) {
+            term *= number / n;
+            result += term;
+            n++;
+
+            if (hmath::abs(term) < tolerance) {return result;}
+        }
+    }
+
+    double ln(double number) {
+        if(number <= 0) {throw std::domain_error("ln(x) is undefined for x <= 0");}
+
+        double y = number - 1.0, tolerance = 1e-10;
+
+        while(true) {
+            double ey = hmath::exp(y);
+            double delta = (ey - number) / ey;
+            y -= delta;
+
+            if(hmath::abs(delta) < tolerance) {return y;}
+        }
+    }
+
     // TODO: Make it take non int exponent numbers
-    double doublePow(double number, int exponent, std::optional<double> modulus) {
-        double result = number;
+    double logPow(double base, int exponent, std::optional<double> modulus) {
+        if(base <= 0.0) {throw std::domain_error("Base must be positive for logarithm-based exponentiation");}
+        
+        double result = hmath::exp(exponent * hmath::ln(base));
 
-        for(int i = 0; i < exponent; i++) {
-            result *= number;
-
-            if(modulus) {
-                result = fmod(result, modulus.value());
-            }
+        if (modulus) {
+            result = hmath::fmod(result, modulus.value());
         }
 
         return result;
     }
 
-    double intPow(int number, int exponent, std::optional<int> modulus) {
-        if(exponent == 0) {return 1.0;}
-        
-        double result = number; 
-        
-        for(int i = 0; i < hmath::abs(exponent); i++) {
-            result *= number;
-            
-            if(modulus) {
-                result = static_cast<int>(result) % modulus.value();
-            }
-        }
-
-        if(exponent < 0) {
-            return (1/result);
-        } else {
-            return result;
-        }
-        
-    }
-
     double sqrt(double number) {
-        if(number < 0) {throw std::overflow_error("Can't take sqrt of negativ numbers");}
+        if(number < 0) {throw std::domain_error("Can't take sqrt of negativ numbers");}
         if(number == 0) {return 0;}
         
         double x = number, prev;
