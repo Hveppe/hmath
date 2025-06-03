@@ -64,7 +64,20 @@ namespace hmath {
         }
     }
 
-    double logPow(double base, double exponent, std::optional<double> modulus) {
+    int factorial(int number) {
+        if(number == 0) {return 1;}
+        if(number < 0) {throw std::domain_error("factorial can only take positive numbers");}
+
+        int result = 1;
+
+        for(int i = 1; i < number + 1; i++) {
+            result *= i;
+        }
+
+        return result;
+    }
+
+    double logPow(double base, double exponent) {
         double result;
         
         if(base < 0.0) {
@@ -79,11 +92,11 @@ namespace hmath {
             result = hmath::exp(exponent * hmath::ln(base));
         }
 
-        if (modulus) {
-            result = hmath::fmod(result, modulus.value());
-        }
-
         return result;
+    }
+   
+    double modPow(double number, double exponent, std::optional<double> modulus) {
+        return 0.0;
     }
 
     double sqrt(double number) {

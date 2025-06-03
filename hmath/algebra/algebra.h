@@ -19,9 +19,11 @@ namespace hmath {
 
     double exp(double number);
     double ln(double number);
+    int factorial(int number);
     double fmod(double number, double modulus);
     
-    double logPow(double number, double exponent, std::optional<double> modulus = std::nullopt);
+    double logPow(double number, double exponent);
+    double modPow(double number, double exponent, std::optional<double> modulus = std::nullopt);
     double sqrt(double number);
 }
 
