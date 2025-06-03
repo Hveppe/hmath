@@ -50,8 +50,8 @@ namespace hmath {
     }
 
     double ln(double number) {
-        if(number < 0) {throw std::domain_error("ln(x) is undefined for x <= 0");}
         if(number == 0) {return 1;}
+        if(number < 0) {throw std::domain_error("ln(x) is undefined for x <= 0");}
 
         double y = number - 1.0, tolerance = 1e-10;
 
