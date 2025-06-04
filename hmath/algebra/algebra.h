@@ -4,6 +4,7 @@
 // included libraries
 #include <stdexcept>
 #include <iostream>
+#include <vector>
 
 namespace hmath {
     // constants
@@ -16,12 +17,18 @@ namespace hmath {
     int floor(double number);
     int trunc(double number);
     int round(double number);
+    double absDiff(double a, double b);
     double fmod(double number, double modulus);
 
-    // type checks
+    // type check functions
     bool isEven(int number);
     bool isOdd(int number);
     bool isPrime(int number);
+
+    // divisor functions
+    std::vector<int> divisors(int number);
+    int gcd(int a, int b);
+    int lcm(int a, int b);
 
     // exponential, logarithmic, factorial, power, and root functions
     double exp(double number);
