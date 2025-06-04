@@ -2,7 +2,6 @@
 #define HMATH_ALGEBRA_H
 
 // included libraries
-#include <optional>
 #include <stdexcept>
 #include <iostream>
 
@@ -22,8 +21,8 @@ namespace hmath {
     int factorial(int number);
     double fmod(double number, double modulus);
     
-    double logPow(double number, double exponent);
-    double modPow(double number, double exponent, std::optional<double> modulus = std::nullopt);
+    double logPow(double base, double exponent);
+    double modPow(int base, int exponent, int modulus);
     double sqrt(double number);
 }
 

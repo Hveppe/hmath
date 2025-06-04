@@ -95,8 +95,22 @@ namespace hmath {
         return result;
     }
    
-    double modPow(double number, double exponent, std::optional<double> modulus) {
-        return 0.0;
+    double modPow(int base, int exponent, int modulus) {
+        if(modulus == 1) {
+            return 0;
+        }
+
+        int result = 1;
+        base %= modulus;
+
+        while(exponent > 0) {
+            if(exponent % 2 == 1) {
+                result = (result * base) % modulus;
+            }
+            exponent >>= 1;
+            base = (base * base) % modulus;
+        }
+        return result;
     }
 
     double sqrt(double number) {
