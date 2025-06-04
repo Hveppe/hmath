@@ -1,4 +1,4 @@
-#include "algebra.h"
+#include "rounding.h"
 
 namespace hmath {
     // basic rounding and absolute value functions

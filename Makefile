@@ -3,7 +3,7 @@ CXX := g++
 CXXFLAGS := -std=c++17 -Wall -Ihmath
 
 # Automatically find all .cpp files in hmath folder
-HMATH_SRCS := $(wildcard hmath/**/*.cpp)
+HMATH_SRCS := $(shell find hmath -name '*.cpp')
 
 # Convert all .cpp source files in hmath folder to object files
 HMATH_OBJS := $(patsubst %.cpp,%.o,$(HMATH_SRCS))

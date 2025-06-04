@@ -1,4 +1,4 @@
-#include "algebra.h"
+#include "roots.h"
 
 namespace hmath {
     // root functions

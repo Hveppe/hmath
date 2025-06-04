@@ -1,4 +1,4 @@
-#include "algebra.h"
+#include "typechecks.h"
 
 namespace hmath {
     // type checks

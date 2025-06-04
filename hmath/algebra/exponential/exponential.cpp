@@ -1,4 +1,4 @@
-#include "algebra.h"
+#include "exponential.h"
 
 namespace hmath {
     // exponential, logarithmic and factorial functions

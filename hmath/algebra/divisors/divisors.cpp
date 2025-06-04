@@ -1,4 +1,4 @@
-#include "algebra.h"
+#include "divisors.h"
 
 namespace hmath {
     // divisor functions
