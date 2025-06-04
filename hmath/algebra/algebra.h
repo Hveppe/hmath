@@ -22,7 +22,7 @@ namespace hmath {
     double fmod(double number, double modulus);
     
     double logPow(double base, double exponent);
-    double modPow(int base, int exponent, int modulus);
+    int modPow(int base, int exponent, int modulus);
     double sqrt(double number);
 }
 

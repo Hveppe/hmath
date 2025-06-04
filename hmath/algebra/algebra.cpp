@@ -95,7 +95,7 @@ namespace hmath {
         return result;
     }
    
-    double modPow(int base, int exponent, int modulus) {
+    int modPow(int base, int exponent, int modulus) {
         if(modulus == 1) {
             return 0;
         }
