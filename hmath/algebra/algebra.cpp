@@ -1,6 +1,7 @@
 #include "algebra.h"
 
 namespace hmath {
+    // basic rounding and absolute value functions
     double abs(double number) {
         if(number < 0) {
             return (number * -1);
@@ -36,6 +37,29 @@ namespace hmath {
         return ceil(number);
     }
 
+    // type checks
+    bool isEven(int number) {
+        return number % 2 == 0;
+    }
+
+    bool isOdd(int number) {
+        return number % 2 == 1;
+    }
+
+    bool isPrime(int number) {
+        if(number < 2) {
+            return false;
+        }
+
+        for(int i = 2; i < hmath::floor(hmath::logPow(number, 0.5)) + 1; i++) {
+            if(number % i == 0) {
+                return false;
+            } 
+        }
+        return true;
+    }
+
+    // exponential, logarithmic, factorial, power, and root functions
     double exp(double number) {
         double term = 1.0, result = 1.0, tolerance = 1e-10;
         int n = 1;
