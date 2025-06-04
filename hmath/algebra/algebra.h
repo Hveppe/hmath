@@ -7,6 +7,7 @@
 // included header files
 #include "exponential/exponential.h"
 #include "typechecks/typechecks.h"
+#include "basic_math/basic_math.h"
 #include "rounding/rounding.h"
 #include "divisors/divisors.h"
 #include "roots/roots.h"
