@@ -21,12 +21,22 @@ namespace hmath {
         double operator * (const hmath::vector2 &otherVector) const {return x * otherVector.x + y * otherVector.y;}
     };
 
+    struct polarCoordinates2 {
+        double length, angle;
+
+        polarCoordinates2(hmath::vector2 &vector);
+    };
+
     // functions
     double length(hmath::vector2 &vector);
     hmath::vector2 makeUnitVector(hmath::vector2 &vector);
     double angleBetweenVectors(hmath::vector2 &vector1, hmath::vector2 &vector2);
+    hmath::polarCoordinates2 makePolar(hmath::vector2 &vector);
+    hmath::vector2 makeCartesian(hmath::polarCoordinates2 &polar);
 
+    // custom std::cout instructions
     std::ostream &operator << (std::ostream &os, const hmath::vector2 &vector);
+    std::ostream &operator << (std::ostream &os, const hmath::polarCoordinates2 &polar);
 
     // 3D vectors
     class vector3 {
@@ -48,8 +58,9 @@ namespace hmath {
     hmath::vector3 makeUnitVector(hmath::vector3 &vector);
     double angleBetweenVectors(hmath::vector3 &vector1, hmath::vector3 &vector2);
 
-
+    // custom std::cout instructions
     std::ostream &operator << (std::ostream &os, const vector3 &vector);
+
 }
 
 #endif

@@ -13,6 +13,7 @@ namespace hmath {
         return hmath::arcCos((vector1 * vector2)/(hmath::length(vector1) * hmath::length(vector2)));
     }
 
+    // custom std::cout instructions
     std::ostream &operator << (std::ostream &os, const vector3 &vector) {
         os << "(" << vector.x << "; " << vector.y << "; " << vector.z << ")";
         return os;
