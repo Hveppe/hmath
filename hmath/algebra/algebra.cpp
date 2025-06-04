@@ -91,7 +91,7 @@ namespace hmath {
         return hmath::abs(a * b) / hmath::gcd(a, b);
     }
 
-    // exponential, logarithmic, factorial, power, and root functions
+    // exponential, logarithmic and factorial functions
     double exp(double number) {
         double term = 1.0, result = 1.0, tolerance = 1e-10;
         int n = 1;
@@ -133,6 +133,17 @@ namespace hmath {
         return result;
     }
 
+    // power functions
+    double pow(double base, int exponent) {
+        double result = 1;
+
+        for(int i = 0; i < exponent; i++) {
+            result *= base;
+        }
+
+        return result;
+    }
+    
     double logPow(double base, double exponent) {
         double result;
         
@@ -169,6 +180,7 @@ namespace hmath {
         return result;
     }
 
+    // root functions
     double sqrt(double number) {
         if(number < 0) {throw std::domain_error("Can't take sqrt of negativ numbers");}
         if(number == 0) {return 0;}
@@ -182,5 +194,21 @@ namespace hmath {
         }
 
         return x;
-    }   
+    }
+    
+    double nthRoot(double number, int root) {
+        if(number < 0 && root % 2 == 0) {throw std::domain_error("Can't take even root of negativ numbers");}
+        if(root == 0) {throw std::domain_error("Root can't be zero");}
+        if(number == 0) {return 0;}
+        
+        double x = number, prev;
+        const double tolerance = 1e-10;
+
+        while( hmath::abs(x - prev) > tolerance) {
+            prev = x;
+            x = ((double) (root - 1) / root) * x + (number / (root * hmath::logPow(x, root - 1)));
+        }
+
+        return x;
+    }
 }

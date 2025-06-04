@@ -30,13 +30,19 @@ namespace hmath {
     int gcd(int a, int b);
     int lcm(int a, int b);
 
-    // exponential, logarithmic, factorial, power, and root functions
+    // exponential, logarithmic and factorial functions
     double exp(double number);
     double ln(double number);
     int factorial(int number);
+
+    // power functions
+    double pow(double base, int exponent);
     double logPow(double base, double exponent);
     int modPow(int base, int exponent, int modulus);
+
+    // root functions
     double sqrt(double number);
+    double nthRoot(double number, int root);
 }
 
 #endif
