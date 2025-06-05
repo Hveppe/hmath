@@ -9,6 +9,30 @@ namespace hmath {
         return (a > b) ?  a : b;
     }
 
+    double min(std::vector<double> numbers) {
+        double result = numbers[0];
+
+        for(size_t i = 1; i < numbers.size(); i++) {
+            if(result > numbers[i]) {
+                result = numbers[i];
+            }
+        }
+
+        return result;
+    }
+
+    double max(std::vector<double> numbers) {
+        double result = numbers[0];
+
+        for(size_t i = 1; i < numbers.size(); i++) {
+            if(numbers[i] > result) {
+                result = numbers[i];
+            }
+        }
+
+        return result;
+    }
+
     double clamp(double value, double minValue, double maxValue) {
         return hmath::max(minValue, hmath::min(value, maxValue));
     }

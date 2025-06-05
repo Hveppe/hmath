@@ -30,13 +30,12 @@ namespace hmath {
         }
     }
 
-    int factorial(int number) {
+    long long factorial(unsigned int number) {
         if(number == 0) {return 1;}
-        if(number < 0) {throw std::domain_error("factorial can only take positive numbers");}
 
         int result = 1;
 
-        for(int i = 1; i < number + 1; i++) {
+        for(int i = 1; i <= (int) number; i++) {
             result *= i;
         }
 
