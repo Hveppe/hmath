@@ -6,6 +6,6 @@ A self-made math library that can be freely used under the MIT license.
 ### License
 License file is included in both:
 - main repository
-- Inside hmath folder
+- hmath folder
 
 When using the library only the license file inside the hmath folder is necessary to include. 
