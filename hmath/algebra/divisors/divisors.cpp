@@ -6,12 +6,16 @@ namespace hmath {
         std::vector<int> divList;
 
         for(int i = 1; i < number + 1; i++) {
-            if(number/i == floor(number/i)) {
+            if(hmath::isDivisor(number, i)) {
                 divList.push_back(number/i);
             }
         }
 
         return divList;
+    }
+
+    int countDivisors(int number) {
+        return hmath::divisors(number).size();
     }
 
     int gcd(int a, int b) {

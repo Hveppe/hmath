@@ -30,11 +30,9 @@ namespace hmath {
         return number - modulus * hmath::trunc(number / modulus);
     }
 
-    int round(double number) {
-        if(fmod(number, 1) < 0.5) {
-            return floor(number);
-        }
-        return ceil(number);
+    double round(double number, int decimals) {
+        double factor = hmath::pow(10.0, decimals);
+        return hmath::floor(number * factor + 0.5) / factor;
     }
 
     double absDiff(double a, double b) {

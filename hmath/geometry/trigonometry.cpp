@@ -37,7 +37,7 @@ namespace hmath {
         }
 
         // Threshold near-zero values
-        if (hmath::abs(result) < 1e-15) {
+        if (hmath::isZero(result, 1e-15)) {
             result = 0.0;
         }
 

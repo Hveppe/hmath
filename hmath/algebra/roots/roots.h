@@ -8,6 +8,7 @@
 namespace hmath {
     // root functions
     double sqrt(double number);
+    double cbrt(double number);
     double nthRoot(double number, int root);
 }
 

@@ -22,4 +22,16 @@ namespace hmath {
         }
         return true;
     }
+
+    bool isBetween(double value, double minValue, double maxValue) {
+        return value >= minValue && value <= maxValue;
+    }
+
+    bool isZero(double value, double tolerance) {
+        return hmath::abs(value) < tolerance; 
+    }
+
+    bool isDivisor(int a, int b) {
+        return (double) a/b == floor(a/b);
+    }
 }

@@ -16,4 +16,10 @@ namespace hmath {
     double sign(double number) {
         return (number > 0) - (number < 0);
     }
+
+    void swap(double &a, double &b) {
+        double temp = a;
+        a = b;
+        b = temp;
+    }
 }

@@ -7,6 +7,7 @@ namespace hmath {
     double max(double a, double b);
     double clamp(double value, double minValue, double maxValue);
     double sign(double number);
+    void swap(double &a, double &b);
 }
 
 #endif
