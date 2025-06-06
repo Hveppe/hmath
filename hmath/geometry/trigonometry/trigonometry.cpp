@@ -1,4 +1,4 @@
-#include "geometry.h"
+#include "trigonometry.h"
 
 namespace hmath {
     // Sinus made with Taylor series

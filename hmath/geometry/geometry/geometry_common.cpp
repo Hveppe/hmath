@@ -1,4 +1,4 @@
-#include "geometry.h"
+#include "geometry_common.h"
 
 namespace hmath {
     double degreeToRadian(double degrees) {return degrees * (hmath::PI/180);}
