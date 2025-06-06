@@ -24,6 +24,7 @@ namespace hmath {
     // functions
     double length(hmath::vector3 &vector);
     hmath::vector3 makeUnitVector(hmath::vector3 &vector);
+    hmath::vector3 cross(hmath::vector3 &vector1, hmath::vector3 &vector2);
     double angleBetweenVectors(hmath::vector3 &vector1, hmath::vector3 &vector2);
     hmath::vector3 vectorProjektion(hmath::vector3 &vector1, hmath::vector3 &vector2);
 
