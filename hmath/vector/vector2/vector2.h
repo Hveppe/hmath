@@ -2,8 +2,8 @@
 #define HMATH_VECTOR_2_H
 
 #include <iostream>
-#include "../algebra/algebra.h"
-#include "../geometry/geometry.h"
+#include "../../algebra/algebra.h"
+#include "../../geometry/geometry.h"
 
 namespace hmath {
     // 2D vectors
@@ -30,6 +30,7 @@ namespace hmath {
     double length(hmath::vector2 &vector);
     hmath::vector2 makeUnitVector(hmath::vector2 &vector);
     double angleBetweenVectors(hmath::vector2 &vector1, hmath::vector2 &vector2);
+    hmath::vector2 vectorProjektion(hmath::vector2 &vector1, hmath::vector2 &vector2);
     hmath::polarCoordinates2 makePolar(hmath::vector2 &vector);
     hmath::vector2 makeCartesian(hmath::polarCoordinates2 &polar);
 

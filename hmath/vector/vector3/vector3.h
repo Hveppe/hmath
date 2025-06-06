@@ -2,8 +2,8 @@
 #define HMATH_VECTOR_3_H
 
 #include <iostream>
-#include "../algebra/algebra.h"
-#include "../geometry/geometry.h"
+#include "../../algebra/algebra.h"
+#include "../../geometry/geometry.h"
 
 namespace hmath {
     // 3D vectors

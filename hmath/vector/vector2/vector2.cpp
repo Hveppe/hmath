@@ -14,7 +14,12 @@ namespace hmath {
     }
     
     double angleBetweenVectors(hmath::vector2 &vector1, hmath::vector2 &vector2) {
-        return hmath::arcCos((vector1 * vector2)/(hmath::length(vector1) * hmath::length(vector2)));
+        return hmath::arcCos((vector1 * vector2) / (hmath::length(vector1) * hmath::length(vector2)));
+    }
+
+    hmath::vector2 vectorProjektion(hmath::vector2 &vector1, hmath::vector2 &vector2) {
+        double skalar = (vector1 * vector2) / hmath::pow(hmath::length(vector2), 2);
+        return vector2 * skalar;
     }
 
     hmath::polarCoordinates2 makePolar(hmath::vector2 &vector) {
