@@ -6,9 +6,9 @@
 
 namespace hmath {
     // Trigonometry
-    double sin(double x, int terms = 10);
-    double cos(double x, int terms = 10);
-    double tan(double x, int terms = 10);
+    double sin(double x, int terms = 15);
+    double cos(double x, int terms = 15);
+    double tan(double x, int terms = 15);
     
     double arcSin(double x);
     double arcCos(double x);
