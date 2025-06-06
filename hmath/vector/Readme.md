@@ -1,5 +1,5 @@
 # Vector
-This module is part of the hmath library and provides essential classes for working with 2D and 3D vectors, along with related utility functions.
+This module is part of the `hmath` library and provides essential classes for working with 2D and 3D vectors, along with related utility functions.
 
 ## Key Features
 Key features of the module is:
@@ -8,9 +8,9 @@ Key features of the module is:
 - The ablity to convert 2D vector between polar and cartesian forms.
 
 ## Integration Example
-The module can be used either by including the entire library or by directly including vector.h, as shown below.
+The module can be used either by including the entire library or by directly including `vector.h`, as shown below.
 ``` c++
 #include "hmath/vector/vector.h"
 ```
 
-It is also possible to include only vector2.h or vector3.h if you only need 2D or 3D vectors.
+It is also possible to include only `vector2.h` or `vector3.h` if you only need 2D or 3D vectors.
