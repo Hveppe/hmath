@@ -25,6 +25,7 @@ namespace hmath {
     double length(hmath::vector3 &vector);
     hmath::vector3 makeUnitVector(hmath::vector3 &vector);
     double angleBetweenVectors(hmath::vector3 &vector1, hmath::vector3 &vector2);
+    hmath::vector3 vectorProjektion(hmath::vector3 &vector1, hmath::vector3 &vector2);
 
     // custom std::cout instructions
     std::ostream &operator << (std::ostream &os, const vector3 &vector);

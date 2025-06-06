@@ -13,6 +13,11 @@ namespace hmath {
         return hmath::arcCos((vector1 * vector2)/(hmath::length(vector1) * hmath::length(vector2)));
     }
 
+    hmath::vector3 vectorProjektion(hmath::vector3 &vector1, hmath::vector3 &vector2) {
+        double skalar = (vector1 * vector2) / hmath::pow(hmath::length(vector2), 2);
+        return vector2 * skalar;
+    }
+
     // custom std::cout instructions
     std::ostream &operator << (std::ostream &os, const vector3 &vector) {
         os << "(" << vector.x << "; " << vector.y << "; " << vector.z << ")";
