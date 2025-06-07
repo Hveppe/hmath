@@ -10,6 +10,12 @@ Key features of this module is:
 
 - `variance`: Calculates the sample variance of a list of numbers.
 
+- `occurrence`: Determine the number of times a given number appears in a list.
+
+- `frequency`: Returns the percentage of values in a list that match a given number.
+
+- `mode`: Returns the value that occurs most often in a list of numbers.
+
 ## Including the Module
 This module can be used either by including the entire library or by directly including `statistics.h`, as shown below.
 
