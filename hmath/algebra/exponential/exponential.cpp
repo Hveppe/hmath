@@ -1,20 +1,47 @@
 #include "exponential.h"
 
 namespace hmath {
-    // exponential, logarithmic and factorial functions
+    // exponential and factorial functions
     double exp(double number) {
-        double term = 1.0, result = 1.0, tolerance = 1e-10;
-        int n = 1;
-        
-        while(true) {
-            term *= number / n;
-            result += term;
-            n++;
+        // Constants (hardcoded)
+        const double ln2 = 0.6931471805599453;
+        const double invln2 = 1.4426950408889634;
 
-            if (hmath::abs(term) < tolerance) {return result;}
-        }
+        // Handle large/small inputs to avoid overflow and underflow
+        if (number > 709.0) 
+            return 1e308; 
+        if (number < -745.0) 
+            return 0.0;
+
+        // Range reduction
+        int k = hmath::round(number * invln2);
+        double r = number - k * ln2;
+
+        // Polynomial approx
+        double r2 = r * r;
+        double r3 = r2 * r;
+        double r4 = r3 * r;
+        double r5 = r4 * r;
+
+        double approx = 1.0 + r + r2 * 0.5 + r3 * (1.0 / 6.0) + r4 * (1.0 / 24.0) + r5 * (1.0 / 120.0);
+
+        // Multiply by 2^k
+        return approx * hmath::pow(2, k);
     }
 
+    long long factorial(unsigned int number) {
+        if(number == 0) {return 1;}
+
+        long long result = 1;
+
+        for(int i = 1; i <= (int) number; i++) {
+            result *= i;
+        }
+
+        return result;
+    }
+
+    // logarithmic functions
     double ln(double number) {
         if(number == 0) {return 1;}
         if(number < 0) {throw std::domain_error("ln(x) is undefined for x <= 0");}
@@ -30,16 +57,8 @@ namespace hmath {
         }
     }
 
-    long long factorial(unsigned int number) {
-        if(number == 0) {return 1;}
-
-        int result = 1;
-
-        for(int i = 1; i <= (int) number; i++) {
-            result *= i;
-        }
-
-        return result;
+    double log10(double number) {
+        return hmath::ln(number) / hmath::ln(10);
     }
 
     // power functions

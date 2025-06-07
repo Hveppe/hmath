@@ -5,10 +5,13 @@
 #include <stdexcept>
 
 namespace hmath {
-    // exponential, logarithmic and factorial functions
+    // exponential and factorial functions
     double exp(double number);
-    double ln(double number);
     int factorial(int number);
+
+    // logarithmic functions
+    double ln(double number);
+    double log10(double number);
 
     // power functions
     double pow(double base, int exponent);
