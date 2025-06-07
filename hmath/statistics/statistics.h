@@ -11,11 +11,17 @@ namespace hmath {
     double average(const std::vector<double> &numbers);
     double median(std::vector<double> numbers);
     double variance(const std::vector<double> &numbers, bool sampleCase = true);
+    int occurrence(const std::vector<double> &numbers, const double &chosenNumber);
+    double frequency(const std::vector<double> &numbers, const double &chosenNumber);
+    double mode(std::vector<double> numbers);
 
     // int input
     double average(const std::vector<int> &numbers);
     double median(std::vector<int> numbers);
     double variance(const std::vector<int> &numbers,  bool sampleCase = true);
+    int occurrence(const std::vector<int> &numbers, const int &chosenNumber);
+    double frequency(const std::vector<int> &numbers, const int &chosenNumber);
+    int mode(std::vector<int> numbers);
 }
 
 #endif

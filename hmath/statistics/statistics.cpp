@@ -38,6 +38,48 @@ namespace hmath {
         }
     }
 
+    int occurrence(const std::vector<double> &numbers, const double &chosenNumber) {
+        int result = 0;
+
+        for(double number : numbers) {
+            if(number == chosenNumber) {
+                result += 1;
+            }
+        }
+
+        return result;
+    }
+
+    double frequency(const std::vector<double> &numbers, const double &chosenNumber) {
+        return (hmath::occurrence(numbers, chosenNumber) / numbers.size()) * 100;
+    }
+
+    double mode(std::vector<double> numbers) {
+        std::sort(numbers.begin(), numbers.end());
+
+        int highestCount = 1, currentCount = 1;
+        double highest = numbers[0];
+
+        for (size_t i = 1; i < numbers.size(); ++i) {
+            if(numbers[i] != numbers[i - 1]) {
+                if(highestCount < currentCount) {
+                    highest = numbers[i - 1];
+                    highestCount = currentCount;
+                }
+
+                currentCount = 1;
+            } else {
+                currentCount++;
+            }
+        }
+
+        if (currentCount > highestCount) {
+            highest = numbers.back();
+        }
+
+        return highest;
+    }
+
     // int input
     double average(const std::vector<int> &numbers) {
         double result = 0;
@@ -73,5 +115,47 @@ namespace hmath {
         } else {
             return result / numbers.size();
         }
+    }
+
+    int occurrence(const std::vector<int> &numbers, const int &chosenNumber) {
+        int result = 0;
+
+        for(int number : numbers) {
+            if(number == chosenNumber) {
+                result += 1;
+            }
+        }
+
+        return result;
+    }
+
+    double frequency(const std::vector<int> &numbers, const int &chosenNumber) {
+        return (hmath::occurrence(numbers, chosenNumber) / numbers.size()) * 100;
+    }
+
+    int mode(std::vector<int> numbers) {
+        std::sort(numbers.begin(), numbers.end());
+
+        int highestCount = 1, currentCount = 1;
+        int highest = numbers[0];
+
+        for (size_t i = 1; i < numbers.size(); ++i) {
+            if(numbers[i] != numbers[i - 1]) {
+                if(highestCount < currentCount) {
+                    highest = numbers[i - 1];
+                    highestCount = currentCount;
+                }
+
+                currentCount = 1;
+            } else {
+                currentCount++;
+            }
+        }
+
+        if (currentCount > highestCount) {
+            highest = numbers.back();
+        }
+
+        return highest;
     }
 }
