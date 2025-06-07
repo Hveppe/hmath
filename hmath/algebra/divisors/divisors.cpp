@@ -14,6 +14,23 @@ namespace hmath {
         return divList;
     }
 
+    std::vector<int> primeFactors(int number) {
+        std::vector<int> factors;
+
+        for(int i = 2; i * i <= number; i++) {
+            while(number % i == 0) {
+                factors.push_back(i);
+                number /= i;
+            }
+        }
+
+        if(number > 1) {
+            factors.push_back(number);
+        }
+
+        return factors;
+    }
+
     int countDivisors(int number) {
         return hmath::divisors(number).size();
     }

@@ -3,7 +3,7 @@
 
 // Include all header files
 #include "equations_and_functions/equations_and_functions.h"
-#include "probability/probaility.h"
+#include "probability/probability.h"
 #include "statistics/statistics.h"
 #include "geometry/geometry.h"
 #include "algebra/algebra.h"

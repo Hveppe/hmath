@@ -18,7 +18,7 @@ namespace hmath {
     }
 
     unsigned long long permutations(int total, int chosen) {
-        if (chosen > total) return 0;
+        if (chosen > total) {return 0;}
 
         unsigned long long result = 1;
         for(int i = 0; i < chosen; i++) {

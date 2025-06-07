@@ -12,6 +12,10 @@ namespace hmath {
     hmath::vector2 makeUnitVector(hmath::vector2 &vector) {
         return ((vector) * (1.0/hmath::length(vector)));
     }
+
+    hmath::vector2 makePerpendicularVector(hmath::vector2 &vector) {
+        return hmath::vector2(-vector.y, vector.x);
+    }
     
     double angleBetweenVectors(hmath::vector2 &vector1, hmath::vector2 &vector2) {
         return hmath::arcCos((vector1 * vector2) / (hmath::length(vector1) * hmath::length(vector2)));

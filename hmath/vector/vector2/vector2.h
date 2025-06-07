@@ -29,6 +29,7 @@ namespace hmath {
     // functions
     double length(hmath::vector2 &vector);
     hmath::vector2 makeUnitVector(hmath::vector2 &vector);
+    hmath::vector2 makePerpendicularVector(hmath::vector2 &vector);
     double angleBetweenVectors(hmath::vector2 &vector1, hmath::vector2 &vector2);
     hmath::vector2 vectorProjektion(hmath::vector2 &vector1, hmath::vector2 &vector2);
     hmath::polarCoordinates2 makePolar(hmath::vector2 &vector);
