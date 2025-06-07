@@ -2,7 +2,7 @@
 
 namespace hmath {
     // double input
-    double average(std::vector<double> numbers) {
+    double average(const std::vector<double> &numbers) {
         double result = 0;
 
         for(double i : numbers) {
@@ -22,7 +22,7 @@ namespace hmath {
         return (numbers[size / 2 - 1] + numbers[size / 2]) / 2.0;
     }
 
-    double variance(std::vector<double> numbers) {
+    double variance(const std::vector<double> &numbers,  bool sampleCase) {
         double result = 0.0;
         double average = hmath::average(numbers);
 
@@ -31,11 +31,15 @@ namespace hmath {
             result += delta * delta;
         }
 
-        return result / (numbers.size() - 1);
+        if(sampleCase) {
+            return result / (numbers.size() - 1);
+        } else {
+            return result / numbers.size();
+        }
     }
 
     // int input
-    double average(std::vector<int> numbers) {
+    double average(const std::vector<int> &numbers) {
         double result = 0;
 
         for(int i : numbers) {
@@ -55,7 +59,7 @@ namespace hmath {
         return (numbers[size / 2 - 1] + numbers[size / 2]) / 2.0;
     }
 
-    double variance(std::vector<int> numbers) {
+    double variance(const std::vector<int> &numbers,  bool sampleCase) {
         double result = 0.0;
         double average = hmath::average(numbers);
 
@@ -64,6 +68,10 @@ namespace hmath {
             result += delta * delta;
         }
 
-        return result / (numbers.size() - 1);
+        if(sampleCase) {
+            return result / (numbers.size() - 1);
+        } else {
+            return result / numbers.size();
+        }
     }
 }
