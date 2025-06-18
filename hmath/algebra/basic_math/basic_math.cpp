@@ -33,6 +33,30 @@ namespace hmath {
         return result;
     }
 
+    int min(std::vector<int> numbers) {
+        double result = numbers[0];
+
+        for(size_t i = 1; i < numbers.size(); i++) {
+            if(result > numbers[i]) {
+                result = numbers[i];
+            }
+        }
+
+        return result;
+    }
+
+    int max(std::vector<int> numbers) {
+        int result = numbers[0];
+
+        for(size_t i = 1; i < numbers.size(); i++) {
+            if(numbers[i] > result) {
+                result = numbers[i];
+            }
+        }
+
+        return result;
+    }
+
     double clamp(double value, double minValue, double maxValue) {
         return hmath::max(minValue, hmath::min(value, maxValue));
     }
