@@ -13,16 +13,3 @@ Key features of this module is:
 - `rounding`: Basic rounding operations, as well as modulus and absolute value functions
 
 - `typechecks`: Type-checking utilities like `isEven`, `isOdd`, `isPrime` and more.
-
-## Including the Module
-This module can be used either by including the entire library or by directly including `algebra.h`, as shown below.
-
-``` c++
-#include "hmath/algebra/algebra.h"
-```
-
-It is also possible to include individual subcategories by inculding their header files.
-
-``` c++
-#include "hmath/algebra/<subcategory>/<header>.h"
-```

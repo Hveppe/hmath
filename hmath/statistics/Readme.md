@@ -16,9 +16,3 @@ Key features of this module is:
 
 - `mode`: Returns the value that occurs most often in a list of numbers.
 
-## Including the Module
-This module can be used either by including the entire library or by directly including `statistics.h`, as shown below.
-
-``` c++
-#include "hmath/statistics/statistics.h"
-```
