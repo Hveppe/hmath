@@ -1,6 +1,7 @@
 #include "basic_math.h"
 
 namespace hmath {
+    // min and max functions
     double min(double a, double b) {
         return (a < b) ?  a : b;
     }
@@ -57,6 +58,38 @@ namespace hmath {
         return result;
     }
 
+    // sum functions
+    double sum(std::vector<double> numbers, double start) {
+        double sum = start;
+
+        for(double number : numbers) {
+            sum += number;
+        }
+
+        return sum;
+    }
+
+    double sum(std::vector<int> numbers, double start) {
+        double sum = start;
+
+        for(int number : numbers) {
+            sum += number;
+        }
+
+        return sum;
+    }
+
+    int sum(std::vector<int> numbers, int start) {
+        int sum = start;
+
+        for(int number : numbers) {
+            sum += number;
+        }
+
+        return sum;
+    }
+
+    // other functions
     double clamp(double value, double minValue, double maxValue) {
         return hmath::max(minValue, hmath::min(value, maxValue));
     }
