@@ -1,6 +1,7 @@
 #ifndef HMATH_ALGEBRA_BASIC_MATH_H
 #define HMATH_ALGEBRA_BASIC_MATH_H
 
+#include "../rounding/rounding.h"
 #include <vector>
 
 namespace hmath {
@@ -21,6 +22,7 @@ namespace hmath {
     double clamp(double value, double minValue, double maxValue);
     double sign(double number);
     void swap(double &a, double &b);
+    std::pair<int, double> intAndFracParts(double number);
 }
 
 #endif

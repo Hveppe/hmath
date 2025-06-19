@@ -103,4 +103,9 @@ namespace hmath {
         a = b;
         b = temp;
     }
+
+    std::pair<int, double> intAndFracParts(double number) {
+        std::pair<int, double> result = {hmath::floor(number), hmath::fmod(number, 1)};
+        return result;
+    }
 }
