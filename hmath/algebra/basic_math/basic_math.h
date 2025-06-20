@@ -14,9 +14,8 @@ namespace hmath {
     int max(std::vector<int> numbers);
 
     // sum functions
-    double sum(std::vector<double> numbers, double start = 0.0);
-    double sum(std::vector<int> numbers, double start = 0.0);
-    int sum(std::vector<int> numbers, int start = 0);
+    double sum(std::vector<double> numbers);
+    int sum(std::vector<int> numbers);
 
     // other functions
     double clamp(double value, double minValue, double maxValue);

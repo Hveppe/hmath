@@ -59,8 +59,8 @@ namespace hmath {
     }
 
     // sum functions
-    double sum(std::vector<double> numbers, double start) {
-        double sum = start;
+    double sum(std::vector<double> numbers) {
+        double sum = 0.0;
 
         for(double number : numbers) {
             sum += number;
@@ -69,18 +69,8 @@ namespace hmath {
         return sum;
     }
 
-    double sum(std::vector<int> numbers, double start) {
-        double sum = start;
-
-        for(int number : numbers) {
-            sum += number;
-        }
-
-        return sum;
-    }
-
-    int sum(std::vector<int> numbers, int start) {
-        int sum = start;
+    int sum(std::vector<int> numbers) {
+        int sum = 0;
 
         for(int number : numbers) {
             sum += number;
