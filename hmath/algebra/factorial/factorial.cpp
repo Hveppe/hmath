@@ -42,12 +42,25 @@ namespace hmath {
     }
 
     long long multifactorial(unsigned int number, unsigned int skip) {
+        if(skip == 0) {throw std::domain_error("Skip value cant be lower then 1");}
         if(number == 0) {return 1;}
-        
+
         long long result = 1;
 
         for(int i = (int) number; 0 < i; i -= skip) {
             result *= i;
+        }
+
+        return result;
+    }
+
+    long long superFactorial(unsigned int number) {
+        if(number == 0) {return 1;}
+
+        long long result = 1;
+
+        for(unsigned int i = 1; i <= number; i++) {
+            result *= hmath::factorial(i);
         }
 
         return result;

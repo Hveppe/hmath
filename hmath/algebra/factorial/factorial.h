@@ -12,6 +12,7 @@ namespace hmath {
     long long doubleFactorial(unsigned int number);
     long long subFactorial(unsigned int number);
     long long multifactorial(unsigned int number, unsigned int skip = 1);
+    long long superFactorial(unsigned int number);
     long long primorial(unsigned int number);
 }
 
