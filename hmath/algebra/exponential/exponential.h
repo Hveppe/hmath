@@ -18,6 +18,7 @@ namespace hmath {
     double logPow(double base, double exponent);
     int modPow(int base, int exponent, int modulus);
     long long longPow(unsigned long long base, unsigned long long exponent);
+    long long tetration(unsigned int base, unsigned int tetrativeExponent);
 }
 
 #endif

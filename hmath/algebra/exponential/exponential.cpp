@@ -105,4 +105,11 @@ namespace hmath {
 
         return result;
     }
+
+    long long tetration(unsigned int base, unsigned int tetrativeExponent) {
+        if (tetrativeExponent == 1) {
+            return base;
+        }
+        return longPow(base, tetration(base, tetrativeExponent - 1));
+    }
 }
