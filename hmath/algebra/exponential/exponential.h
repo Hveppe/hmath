@@ -14,9 +14,10 @@ namespace hmath {
     double log10(double number);
 
     // power functions
-    double pow(double base, int exponent);
+    double pow(double base, unsigned int exponent);
     double logPow(double base, double exponent);
     int modPow(int base, int exponent, int modulus);
+    long long longPow(unsigned long long base, unsigned long long exponent);
 }
 
 #endif

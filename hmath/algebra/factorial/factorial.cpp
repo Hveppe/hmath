@@ -66,6 +66,55 @@ namespace hmath {
         return result;
     }
 
+    long long hyberFactorial(unsigned int number) {
+        if(number == 0) {return 1;}
+        
+        long long result = 1;
+
+        for(unsigned int i = 1; i <= number; i++) {
+            result *= hmath::longPow(i, i);
+        }
+
+        return result;
+    }
+
+    long long fallingFactorial(unsigned int number, unsigned int fallingValue) {
+        if(number < fallingValue) {throw std::domain_error("Fallingvalue needs to be smaller then number");}
+        if(fallingValue == 0) {return 1;}
+        if(number == 0) {return 0;}
+        
+        long long result = 1;
+
+        for(unsigned int i = number; number - fallingValue + 1 <= i; i--) {
+            result *= i;
+        }
+
+        return result;
+    }
+
+    long long risingFactorial(unsigned int number, unsigned int risingValue) {
+        if(risingValue == 0) {return 1;}
+        if(number == 0) {return 0;}
+        
+        long long result = 1;
+
+        for(unsigned int i = number; i <= number + risingValue - 1; i++) {
+            result *= i;
+        }
+
+        return result;
+    }
+
+    long long expFactorial(unsigned int number) {
+        long long result = number;
+        
+        for(int i = 1; i <= (int) number; i++) {
+            result = longPow(i, result);
+        }
+
+        return result;
+    }
+
     long long primorial(unsigned int number) {
         if(!hmath::isPrime(number)) {throw std::domain_error("primorial input needs to be a prime number");}
         

@@ -50,10 +50,10 @@ namespace hmath {
     }
 
     // power functions
-    double pow(double base, int exponent) {
+    double pow(double base, unsigned int exponent) {
         double result = 1;
 
-        for(int i = 0; i < exponent; i++) {
+        for(int i = 0; i < (int) exponent; i++) {
             result *= base;
         }
 
@@ -93,6 +93,16 @@ namespace hmath {
             exponent >>= 1;
             base = (base * base) % modulus;
         }
+        return result;
+    }
+
+    long long longPow(unsigned long long base, unsigned long long exponent) {
+        long long result = 1;
+
+        for(long long i = 0; i < (long long) exponent; i++) {
+            result *= base;
+        }
+
         return result;
     }
 }
