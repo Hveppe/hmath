@@ -1,13 +1,13 @@
 #ifndef HMATH_ALGEBRA_EXPONENTIAL_H
 #define HMATH_ALGEBRA_EXPONENTIAL_H
 
+#include "../typechecks/typechecks.h"
 #include "../rounding/rounding.h"
 #include <stdexcept>
 
 namespace hmath {
-    // exponential and factorial functions
+    // exponential functions
     double exp(double number);
-    int factorial(int number);
 
     // logarithmic functions
     double ln(double number);

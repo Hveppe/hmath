@@ -1,7 +1,7 @@
 #include "exponential.h"
 
 namespace hmath {
-    // exponential and factorial functions
+    // exponential functions
     double exp(double number) {
         // Constants (hardcoded)
         const double ln2 = 0.6931471805599453;
@@ -27,18 +27,6 @@ namespace hmath {
 
         // Multiply by 2^k
         return approx * hmath::pow(2, k);
-    }
-
-    long long factorial(unsigned int number) {
-        if(number == 0) {return 1;}
-
-        long long result = 1;
-
-        for(int i = 1; i <= (int) number; i++) {
-            result *= i;
-        }
-
-        return result;
     }
 
     // logarithmic functions

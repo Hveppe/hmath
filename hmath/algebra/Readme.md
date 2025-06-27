@@ -8,7 +8,9 @@ Key features of this module is:
 
 - `divisors`: Functions like `gcd`, `lcm`, `divisors` (returns a `std::vector` with all divisors of a number).
 
-- `exponential`: Exponential, logarithmic, factorial, and power functions such as `pow`, `modPow` and `logPow`.
+- `exponential`: Exponential, logarithmic, and power functions such as `pow`, `modPow` and `logPow`.
+
+- `factorial`: Factorial functions.
 
 - `rounding`: Basic rounding operations, as well as modulus and absolute value functions
 
