@@ -78,7 +78,7 @@ namespace hmath {
         return result;
     }
    
-    int modPow(int base, int exponent, int modulus) {
+    int modPow(int base, unsigned int exponent, int modulus) {
         if(modulus == 1) {
             return 0;
         }
@@ -103,6 +103,24 @@ namespace hmath {
             result *= base;
         }
 
+        return result;
+    }
+
+    long long longModPow(unsigned long long base, unsigned long long exponent, long long modulus) {
+        if(modulus == 1) {
+            return 0;
+        }
+
+        long long result = 1;
+        base %= modulus;
+
+        while(exponent > 0) {
+            if(exponent % 2 == 1) {
+                result = (result * base) % modulus;
+            }
+            exponent >>= 1;
+            base = (base * base) % modulus;
+        }
         return result;
     }
 
