@@ -1,8 +1,8 @@
-#ifndef HMATH_ALGEBRA_FACTORIAL_H
-#define HMATH_ALGEBRA_FACTORIAL_H
+#ifndef HMATH_COMBINATORICS_FACTORIAL_H
+#define HMATH_COMBINATORICS_FACTORIAL_H
 
-#include "../typechecks/typechecks.h"
-#include "../rounding/rounding.h"
+#include "../../../algebra/typechecks/typechecks.h"
+#include "../../../algebra/rounding/rounding.h"
 #include <iostream>
 #include <stdexcept>
 
