@@ -28,3 +28,6 @@ $(TARGET): $(HMATH_OBJS) $(MAIN)
 # Clean rule
 clean:
 	rm -f $(HMATH_OBJS) $(TARGET)
+
+rebuild: clean all
+
