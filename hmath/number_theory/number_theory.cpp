@@ -3,7 +3,7 @@
 namespace hmath {
     
     // Fibonacci
-    int fibonacci(unsigned int number) {
+    unsigned int fibonacci(unsigned int number) {
         if(number == 0) {return 0;}
         if(number == 1) {return 1;}
 
@@ -11,7 +11,7 @@ namespace hmath {
     }
 
     // Tribonacci
-    int tribonacci (unsigned int number) {
+    unsigned int tribonacci (unsigned int number) {
         static bool firstCall = true;
 
         if(firstCall) {

@@ -5,8 +5,8 @@
 #include <vector>
 
 namespace hmath {
-    int fibonacci(unsigned int number);
-    int tribonacci(unsigned int number);
+    unsigned int fibonacci(unsigned int number);
+    unsigned int tribonacci(unsigned int number);
 }
 
 #endif
